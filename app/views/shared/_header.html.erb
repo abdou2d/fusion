@@ -1,0 +1,33 @@
+ <nav class="navbar dis navbar-expand-lg navbar-dark cg-gray-900 py-3">
+  <div class="container">
+  <%= link_to root_path do %>
+    <%= image_pack_tag 'logo.svg', width: "220px", :class => "navbar-brand" %>
+  <% end %>
+    <button class="navbar-toggler border-0">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+      </ul>
+
+      <div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">المدونة</a></li>        
+            <li class="nav-item"><%# link_to 'الدروس ', episodes_path, class: "nav-link active" %></li>    
+            <li class="nav-item border-end border border-white mx-4 my-1"></li> 
+            <% if user_signed_in? %>
+                <li><%= link_to current_user.username, users_path, class: "nav-link text-light" %></li>       
+                <li ><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link text-light" %></li>
+            <% else %>
+            
+              <li ><%= link_to 'Login', new_user_session_path, class: "nav-link text-light" %></li>
+              <li ><%= link_to 'Sign up', new_user_registration_path, class: "nav-link text-light" %></li>
+            <% end %>
+          </ul>
+
+
+      </div>
+    </div>
+  </div>
+</nav>
+
